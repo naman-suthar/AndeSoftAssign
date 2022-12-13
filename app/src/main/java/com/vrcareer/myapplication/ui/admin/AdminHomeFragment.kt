@@ -7,9 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.vrcareer.myapplication.R
 import com.vrcareer.myapplication.VoterAdapter
@@ -19,6 +21,7 @@ import com.vrcareer.myapplication.model.Party
 
 class AdminHomeFragment : Fragment() {
     lateinit var db: FirebaseDatabase
+    lateinit var auth: FirebaseAuth
     lateinit var binding: FragmentAdminHomeBinding
     lateinit var adapter: VoterAdapter
 
@@ -29,6 +32,7 @@ class AdminHomeFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentAdminHomeBinding.inflate(inflater,container,false)
         db = FirebaseDatabase.getInstance()
+        auth = FirebaseAuth.getInstance()
         adapter = VoterAdapter()
         binding.rvVoters.layoutManager = LinearLayoutManager(this.requireContext())
         binding.rvVoters.adapter = adapter
@@ -50,7 +54,11 @@ class AdminHomeFragment : Fragment() {
             }
 
         })
-
+        binding.btnSignOut.setOnClickListener {
+            auth.signOut()
+            val action = AdminHomeFragmentDirections.actionAdminHomeFragmentToLoginFragment()
+            findNavController().navigate(action)
+        }
         requireActivity()
             .onBackPressedDispatcher
             .addCallback(this.requireActivity(), object : OnBackPressedCallback(true) {

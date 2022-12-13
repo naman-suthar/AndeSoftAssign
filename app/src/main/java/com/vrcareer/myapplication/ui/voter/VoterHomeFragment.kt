@@ -8,8 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.card.MaterialCardView
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.vrcareer.myapplication.databinding.FragmentVoterHomeBinding
 import com.vrcareer.myapplication.model.Party
@@ -19,6 +21,7 @@ import com.vrcareer.myapplication.model.Voter
 class VoterHomeFragment : Fragment() {
 
     lateinit var db: FirebaseDatabase
+    lateinit var auth: FirebaseAuth
     val args: VoterHomeFragmentArgs by navArgs()
     lateinit var binding: FragmentVoterHomeBinding
 
@@ -29,7 +32,7 @@ class VoterHomeFragment : Fragment() {
 
         binding = FragmentVoterHomeBinding.inflate(inflater, container, false)
         db = FirebaseDatabase.getInstance()
-
+        auth = FirebaseAuth.getInstance()
         var mUser: Voter? = null
 
         db.reference.child("Voter/${args.userid}").get().addOnSuccessListener {
@@ -90,6 +93,12 @@ class VoterHomeFragment : Fragment() {
                     Toast.LENGTH_SHORT
                 ).show()
             }
+        }
+
+        binding.btnLogOut.setOnClickListener {
+            auth.signOut()
+            val action = VoterHomeFragmentDirections.actionVoterHomeFragmentToLoginFragment()
+            findNavController().navigate(action)
         }
 
         requireActivity()
