@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    style="@style/Widget.Material3.CardView.Elevated"
+    android:elevation="3dp"
+    android:layout_marginVertical="5dp"
+    android:layout_marginHorizontal="10dp"
+    app:cardCornerRadius="5dp"
+    android:gravity="center">
+
+ <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     android:orientation="horizontal"
+     android:gravity="center">
+     <TextView
+         android:layout_width="0dp"
+         android:layout_height="wrap_content"
+         android:id="@+id/txt_index"
+         android:text="0"
+         android:textAppearance="@style/TextAppearance.Material3.TitleSmall"
+         android:gravity="center"
+         android:layout_weight="1"/>
+     <TextView
+         android:layout_width="0dp"
+         android:layout_height="wrap_content"
+         android:text="Name"
+         android:gravity="center"
+         android:textAppearance="@style/TextAppearance.Material3.TitleSmall"
+         android:id="@+id/voter_name"
+         android:layout_weight="6"
+         />
+     <TextView
+         android:layout_width="0dp"
+         android:layout_height="wrap_content"
+         android:text="age"
+         android:layout_weight="3"
+         android:gravity="center"
+         android:textAppearance="@style/TextAppearance.Material3.TitleSmall"
+         android:id="@+id/voter_age"/>
+ </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "201048295318",
+    "firebase_url": "https://voteme-c6484-default-rtdb.firebaseio.com",
+    "project_id": "voteme-c6484",
+    "storage_bucket": "voteme-c6484.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:201048295318:android:f192c2e45d3680fa1f7fb7",
+        "android_client_info": {
+          "package_name": "com.vrcareer.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "201048295318-hndeq9r4ca6ima1d14tcs22djq1q6h0g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vrcareer.myapplication",
+            "certificate_hash": "531e831dd5b0b1fbb3c699f85a4c2b3d5f27fdb9"
+          }
+        },
+        {
+          "client_id": "201048295318-k4kl8oou1dnoj9a27b34p0vtbbpevnru.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwqT-H55EmFRc5BOaUTqIGyz69UWyhlvs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "201048295318-k4kl8oou1dnoj9a27b34p0vtbbpevnru.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
